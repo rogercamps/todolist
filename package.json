@@ -1,0 +1,31 @@
+{
+  "name": "todolist",
+  "version": "1.0.0",
+  "description": "Simple to do list",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test",
+    "start": "nodemon ./bin/www"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rogercamps/todolist.git"
+  },
+  "author": "Keith Oppel & Roger Camps",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rogercamps/todolist/issues"
+  },
+  "homepage": "https://github.com/rogercamps/todolist#readme",
+  "dependencies": {
+    "body-parser": "^1.17.1",
+    "cookie-parser": "^1.4.3",
+    "debug": "^2.6.3",
+    "express": "^4.15.2",
+    "morgan": "^1.8.1",
+    "nodemon": "^1.11.0",
+    "pg-promise": "^5.6.4",
+    "pug": "^2.0.0-beta11",
+    "serve-favicon": "^2.4.2"
+  }
+}
