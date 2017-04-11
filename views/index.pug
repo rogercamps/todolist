@@ -1,0 +1,19 @@
+extends layout
+
+block content
+  h1 To Do List
+
+  form.newTodo(action='/createTask', method='post')
+    input(name='task', type='text' placeholder='Enter Task Here')
+    button(type="submit") add
+   
+   ul
+    each task in tasks
+      form(action='/updateTask/' + task.id, method='post')
+        li
+          input(name='name', value= task.name)
+       
+      form(action='/deleteTask' + task.id, method='post')
+        li
+          button(type='submit') X
+        
