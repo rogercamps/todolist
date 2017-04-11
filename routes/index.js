@@ -1,7 +1,7 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
 
-var db = require('../database/queries');
+const db = require('../database/queries');
 
 router.get('/tasks', db.getAllTasks);
 router.get('/tasks/:id', db.getSingleTask);
