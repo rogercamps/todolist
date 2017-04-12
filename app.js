@@ -5,6 +5,8 @@ const favicon = require('serve-favicon')
 const bodyParser = require('body-parser')
 const cookieParser = require('cookie-parser')
 
+const app = express()
+
 const index = require('./routes/index')
 const users = require('./routes/users')
 
@@ -32,6 +34,7 @@ app.use(function(error, request, response, next) {
   response.locals.message = error.message
   response.locals.error = request.app.get('env') === 'development' ? error : {}
 })
+
 response.status(error.status || 500)
 response.render('Something went wrong.')
 
