@@ -1,16 +1,46 @@
 const express = require('express');
 const router = express.Router();
+const tasks = require('../database/tasks.js')
+const queries = require('../database/queries.js')
+const pgPromise = require('pg-promise')
 
-const db = require('../database/queries');
+router.get('/tasks', function(request, response) {
+  tasks.getAll().then(tasks => {
+      response.render('index', {
+        title: 'To Do List',
+        tasks: tasks
+      })
+    })
+    .catch(error => response.json(error))
+})
 
-router.get('/tasks', db.getAllTasks);
-router.get('/tasks/:id', db.getSingleTask);
-router.post('/tasks', db.createTask);
+router.post('/createTask', function(request, response) {
+  tasks.create(request.body.note).then(() => {
+      response.redirect('/')
+    })
+    .catch(error => response.json(error))
+})
 
-//TODO: research router.put vs. router.post
-//if router.put does not work, try router.get
+router.post('/deleteTask/:id', (request, response) => {
+  tasks.deleteTask(request.params.id).then(() => {
+      response.redirect('/')
+    })
+    .catch(error => response.json(error))
+})
 
-router.put('/tasks/:id', db.updateTask);
-router.delete('/tasks/:id', db.removeTask);
+router.get('/updateTask/:id', (request, response) => {
+  const { id } = request.params
+})
+
+Promise.all('SELECT * FROM tasks WHERE id=$1').then(data => {
+  response.redirect('/')
+})
+
+router.post('/updateTask:id', (request, response) => {
+  tasks.update(request.body.note, request.params.id).then(() => {
+      response.redirect('/')
+    })
+    .catch(error => response.json(error))
+})
 
 module.exports = router;
