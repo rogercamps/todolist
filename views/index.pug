@@ -7,13 +7,13 @@ block content
     input(name='task', type='text' placeholder='Enter Task Here')
     button(type="submit") add
    
-   ul
+  ul
     each task in tasks
-      form(action='/updateTask/' + task.id, method='post')
+      form(action='/updateTask/' + task.task_id, method='post')
         li
           input(name='name', value= task.name)
        
-      form(action='/deleteTask' + task.id, method='post')
+      form(action='/deleteTask' + task.task_id, method='post')
         li
           button(type='submit') X
         

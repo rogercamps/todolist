@@ -1,10 +1,10 @@
-const express = require('express');
-const router = express.Router();
+var express = require('express');
+var router = express.Router();
 const tasks = require('../database/tasks.js')
-const queries = require('../database/queries.js')
 const pgPromise = require('pg-promise')
 
-router.get('/tasks', function(request, response) {
+
+router.get('/', function(request, response) {
   tasks.getAll().then(tasks => {
       response.render('index', {
         title: 'To Do List',
@@ -30,11 +30,12 @@ router.post('/deleteTask/:id', (request, response) => {
 
 router.get('/updateTask/:id', (request, response) => {
   const { id } = request.params
+
+  Promise.all('SELECT * FROM tasks WHERE id=$1').then(data => {
+    response.redirect('/')
+  })
 })
 
-Promise.all('SELECT * FROM tasks WHERE id=$1').then(data => {
-  response.redirect('/')
-})
 
 router.post('/updateTask:id', (request, response) => {
   tasks.update(request.body.note, request.params.id).then(() => {
