@@ -1,20 +1,20 @@
 const express = require('express')
 const path = require('path')
-const morgan = require('morgan')
+const logger = require('morgan')
 const favicon = require('serve-favicon')
 const bodyParser = require('body-parser')
 const cookieParser = require('cookie-parser')
 
-const app = express()
-
 const index = require('./routes/index')
 const users = require('./routes/users')
+
+const app = express()
 
 app.set('views', path.join(__dirname, 'views'))
 app.set('view engine', 'pug')
 
 app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')))
-app.use(morgan('dev'))
+app.use(logger('dev'))
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(cookieParser())
@@ -31,11 +31,11 @@ app.use(function(request, response, next) {
 
 app.use(function(error, request, response, next) {
   //this only provides errors in development
+  console.log(error)
   response.locals.message = error.message
   response.locals.error = request.app.get('env') === 'development' ? error : {}
+  response.status(error.status || 500)
+  response.render('Something went wrong.')
 })
-
-response.status(error.status || 500)
-response.render('Something went wrong.')
 
 module.exports = app;
