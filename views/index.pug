@@ -1,18 +1,24 @@
 extends layout
 
 block content
+
   h1 To Do List
 
   form.newTodo(action='/createTask', method='post')
-    input(name='task', type='text' placeholder='Enter Task Here')
-    button(type="submit") add
-
+    input(id='task', type='text' placeholder='Enter Task Here')
+    button(class='add-button' type='submit') Add
+  
+  br
   ul
     each task in tasks
-      form(action='/updateTask/' + task.task_id, method='post')
-        li
-          input(name='task', value= task.note)
+      li
+        form(action='/updateTask/' + task.task_id, method='post')
+          input(id='task', value= task.note)
+          
+      .flex-container
+        form(action='/deleteTask/' + task.task_id, method='post')
+          button(class='flex-button' type='submit') Delete
 
-      form(action='/deleteTask/' + task.task_id, method='post')
-        li
-          button(type='submit') X
+        form(action='/deleteTask/' + task.task_id, method='post')
+          button(class='flex-button' type='submit') Complete
+      br

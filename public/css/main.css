@@ -2,3 +2,47 @@ body {
   background-color: #bac3d3;
   color: #373837;
 }
+
+h1 {
+  font-size: 48px
+}
+
+input {
+  border-style: none;
+  padding: 5px;
+  font-size: 14px
+}
+
+ul {
+  list-style: none;
+}
+
+#task {
+  height: 26px;
+  width: 250px;
+}
+
+.add-button {
+  background-color: #555555;
+  border: none;
+  color: #FFFFFF;
+  padding: 8px 12px;
+  text-align: center;
+  font-size: 14px;
+  margin: 4px 2px;
+}
+
+.flex-container {
+  display: flex;
+  align-items: flex-start;
+}
+
+.flex-button {
+  background-color: #555555;
+  border: none;
+  color: #FFFFFF;
+  padding: 8px 12px;
+  text-align: center;
+  font-size: 14px;
+  margin: 4px 2px;
+}
