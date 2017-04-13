@@ -6,14 +6,13 @@ block content
   form.newTodo(action='/createTask', method='post')
     input(name='task', type='text' placeholder='Enter Task Here')
     button(type="submit") add
-   
+
   ul
     each task in tasks
       form(action='/updateTask/' + task.task_id, method='post')
         li
-          input(name='name', value= task.name)
-       
-      form(action='/deleteTask' + task.task_id, method='post')
+          input(name='task', value= task.note)
+
+      form(action='/deleteTask/' + task.task_id, method='post')
         li
           button(type='submit') X
-        
