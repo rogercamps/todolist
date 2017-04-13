@@ -17,7 +17,7 @@ ul {
   list-style: none;
 }
 
-#task {
+.task {
   height: 26px;
   width: 250px;
 }

@@ -5,7 +5,7 @@ block content
   h1 To Do List
 
   form.newTodo(action='/createTask', method='post')
-    input(id='task', type='text' placeholder='Enter Task Here')
+    input(name='task', class='task', type='text' placeholder='Enter Task Here')
     button(class='add-button' type='submit') Add
   
   br
@@ -13,7 +13,7 @@ block content
     each task in tasks
       li
         form(action='/updateTask/' + task.task_id, method='post')
-          input(id='task', value= task.note)
+          input(name='task', class='task', value= task.note)
           
       .flex-container
         form(action='/deleteTask/' + task.task_id, method='post')
