@@ -38,7 +38,6 @@ router.get('/updateTask/:id', (request, response) => {
 
 
 router.post('/updateTask/:id', (request, response) => {
-  console.log(request.body);
   tasks.update(request.body.task, request.params.id).then(() => {
       response.redirect('/')
     })
