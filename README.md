@@ -47,27 +47,27 @@ When working on this goal, you'll encounter questions like:
 
 ### User Stories
 
-- [ ] Users can create to do list items.
-- [ ] Users can delete unwanted to do list items.
+- [x] Users can create to do list items.
+- [x] Users can delete unwanted to do list items.
 - [ ] Users can check items off as completed.
 - [ ] Users can rearrange to do list items.
-- [ ] Users can edit the text on existing to do list items.
+- [x] Users can edit the text on existing to do list items.
 - [ ] When an error occurs, the user is notified with modal message.\*
 
 \* A quick and easy way to do this is to use the `alert()` function.
 
 ### Additional
 
-- [ ] Backend uses Node.js and [Express][npm-express].
-- [ ] App persists to do list items in a database.
-- [ ] Code uses a linter and there are no linting errors.
+- [x] Backend uses Node.js and [Express][npm-express].
+- [x] App persists to do list items in a database.
+- [x] Code uses a linter and there are no linting errors.
 - [ ] There are thorough tests for all functionality involved in interacting with the database.
 - [ ] All tests are passing.
-- [ ] Repository includes a README file with basic installation and setup.
-- [ ] All dependencies are properly declared in `package.json`.
-- [ ] All major features are added via pull requests with a clear description and concise commit messages.
+- [x] Repository includes a README file with basic installation and setup.
+- [x] All dependencies are properly declared in `package.json`.
+- [x] All major features are added via pull requests with a clear description and concise commit messages.
 - [ ] Every pull request has been reviewed by at least one other person.
-- [ ] The artifact produced is properly licensed, preferably with the [MIT license][mit-license].
+- [x] The artifact produced is properly licensed, preferably with the [MIT license][mit-license].
 
 ### Stretch
 
