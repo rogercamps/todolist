@@ -32,7 +32,6 @@ ul {
 .task {
   height: 26px;
   width: 550px;
-
 }
 
 .add-button {
@@ -79,11 +78,15 @@ ul {
   box-shadow: 0 5px #7F1011;
 }
 
+.flex-button:hover {
+  background-color: #2776FF;
+}
+
 .flex-button:active {
   box-shadow: 0 3px #E51016;
   transform: translateY(2px);
 }
 
-.flex-button:hover {
-  background-color: #2776FF;
+input[type=checkbox]:checked+label.strikethrough {
+  text-decoration: line-through;
 }
