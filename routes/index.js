@@ -31,7 +31,7 @@ router.post('/deleteTask/:id', (request, response) => {
 router.get('/updateTask/:id', (request, response) => {
   const { id } = request.params
 
-  Promise.all('SELECT * FROM tasks WHERE task_id=$1').then(data=> {
+  Promise.all('SELECT * FROM tasks WHERE note_id=$1').then(data => {
     response.redirect('/')
   })
 })
@@ -39,6 +39,13 @@ router.get('/updateTask/:id', (request, response) => {
 
 router.post('/updateTask/:id', (request, response) => {
   tasks.update(request.body.task, request.params.id).then(() => {
+      response.redirect('/')
+    })
+    .catch(error => response.json(error))
+})
+
+router.post('/completeTask/:id', (request, response) => {
+  tasks.completeTask(request.params.id).then(() => {
       response.redirect('/')
     })
     .catch(error => response.json(error))

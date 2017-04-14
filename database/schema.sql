@@ -1,8 +1,10 @@
+DROP DATABASE if exists todolist;
 CREATE DATABASE todolist;
 
 \c todolist;
 
 CREATE table tasks (
-  task_id SERIAL PRIMARY KEY,
-  note VARCHAR(1000)
+  note_id SERIAL PRIMARY KEY,
+  note VARCHAR(100),
+  complete BOOLEAN default false
 );

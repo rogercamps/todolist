@@ -30,7 +30,6 @@ app.use(function(request, response, next) {
 })
 
 app.use(function(error, request, response, next) {
-  //this only provides errors in development
   console.log(error)
   response.locals.message = error.message
   response.locals.error = request.app.get('env') === 'development' ? error : {}

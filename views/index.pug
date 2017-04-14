@@ -7,18 +7,17 @@ block content
       form.newTodo(action='/createTask', method='post')
         input(name='task', class='task', type='text' placeholder='Enter Task Here')
         button(class='add-button' type='submit') Add
-      
-      
+       
       ul
         each task in tasks
           li
-            form(action='/updateTask/' + task.task_id, method='post')
+            form(action='/updateTask/' + task.note_id, method='post')
               input(name='task', class='task', value= task.note)
               
           .flex-container
-            form(action='/deleteTask/' + task.task_id, method='post')
+            form(action='/deleteTask/' + task.note_id, method='post')
               button(class='flex-button' type='submit') Delete
 
-            form(action='/deleteTask/' + task.task_id, method='post')
+            form(action='/completeTask/' + task.note_id, method='post')
               button(class='flex-button' type='submit') Complete
-          
+              
