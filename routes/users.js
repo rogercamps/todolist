@@ -5,7 +5,7 @@ const router = express.Router()
 // TODO: consider moving this to app.js
 
 // route to get user listing once user system has been implemented
-router.get('/', function(request, response, next) {
+router.get('/', function(request, response) {
   response.send('respond with a resource')
 })
 

@@ -1,5 +1,3 @@
-const express = require('express')
-const router = express.Router()
 const pgPromise = require('pg-promise')
 const pgp = pgPromise()
 const db = pgp({ database: 'todolist' })
@@ -12,4 +10,4 @@ const tasks = {
   completeTask: (id) => db.none('UPDATE tasks SET complete=true WHERE note_id=$1', [id])
 }
 
-module.exports = tasks;
+module.exports = tasks

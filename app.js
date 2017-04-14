@@ -24,12 +24,12 @@ app.use('/', index)
 app.use('/users', users)
 
 app.use(function(request, response, next) {
-  const error = new Error("Can\'t find the file.")
+  const error = new Error('Can\'t find the file.')
   error.status = 404
   next(error)
 })
 
-app.use(function(error, request, response, next) {
+app.use(function(error, request, response) {
   console.log(error)
   response.locals.message = error.message
   response.locals.error = request.app.get('env') === 'development' ? error : {}
