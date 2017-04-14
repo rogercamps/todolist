@@ -86,7 +86,3 @@ ul {
   box-shadow: 0 3px #E51016;
   transform: translateY(2px);
 }
-
-input[type=checkbox]:checked+label.strikethrough {
-  text-decoration: line-through;
-}
