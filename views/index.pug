@@ -2,23 +2,23 @@ extends layout
 
 block content
 
-  h1 To Do List
+  .everything
+    h1 To Do List
+      form.newTodo(action='/createTask', method='post')
+        input(name='task', class='task', type='text' placeholder='Enter Task Here')
+        button(class='add-button' type='submit') Add
+      
+      
+      ul
+        each task in tasks
+          li
+            form(action='/updateTask/' + task.task_id, method='post')
+              input(name='task', class='task', value= task.note)
+              
+          .flex-container
+            form(action='/deleteTask/' + task.task_id, method='post')
+              button(class='flex-button' type='submit') Delete
 
-  form.newTodo(action='/createTask', method='post')
-    input(name='task', class='task', type='text' placeholder='Enter Task Here')
-    button(class='add-button' type='submit') Add
-  
-  br
-  ul
-    each task in tasks
-      li
-        form(action='/updateTask/' + task.task_id, method='post')
-          input(name='task', class='task', value= task.note)
+            form(action='/deleteTask/' + task.task_id, method='post')
+              button(class='flex-button' type='submit') Complete
           
-      .flex-container
-        form(action='/deleteTask/' + task.task_id, method='post')
-          button(class='flex-button' type='submit') Delete
-
-        form(action='/deleteTask/' + task.task_id, method='post')
-          button(class='flex-button' type='submit') Complete
-      br
